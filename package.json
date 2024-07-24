@@ -6,7 +6,8 @@
   "scripts": {
     "start": "ts-node src/main.ts",
     "dev": "nodemon src/main.ts",
-    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js -d ./datasource.js"
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js -d ./datasource.js",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -32,9 +33,13 @@
     "typescript": "^5.5.4"
   },
   "devDependencies": {
+    "@nestjs/testing": "^10.3.10",
+    "@types/jest": "^29.5.12",
     "@types/node": "^20.14.12",
     "better-sqlite3": "^11.1.2",
+    "jest": "^29.7.0",
     "nodemon": "^3.1.4",
+    "ts-jest": "^29.2.3",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0"
   }
