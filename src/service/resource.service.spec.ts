@@ -1,17 +1,16 @@
-import {ActionService} from "./action.service";
-import {ActionsEntity} from "../entity/actions.entity";
-import {Test, TestingModule} from "@nestjs/testing";
-import {getRepositoryToken} from "@nestjs/typeorm";
 import {randomUUID} from "node:crypto";
 import {isUUID} from "class-validator";
+import {ResourceService} from "./resource.service";
+import {Test, TestingModule} from "@nestjs/testing";
+import {getRepositoryToken} from "@nestjs/typeorm";
+import {ResourceEntity} from "../entity/resource.entity";
 
-const mockActionService = {
+const mockResourceService = {
     find: jest.fn(async () => {
         return Promise.resolve([
-            {id: randomUUID(), name: 'create'},
-            {id: randomUUID(), name: 'read'},
-            {id: randomUUID(), name: 'update'},
-            {id: randomUUID(), name: 'delete'}
+            {id: randomUUID(), name: 'user'},
+            {id: randomUUID(), name: 'admin'},
+            {id: randomUUID(), name: 'test'},
         ]);
     }),
     findOne: jest.fn(async (x) => {
@@ -22,21 +21,21 @@ const mockActionService = {
     })
 }
 
-describe("Actions Service", () => {
-    let service: ActionService;
+describe("Resource Service", () => {
+    let service: ResourceService;
 
     beforeEach(async () => {
         const module: TestingModule = await Test.createTestingModule({
             providers: [
-                ActionService,
+                ResourceService,
                 {
-                    provide: getRepositoryToken(ActionsEntity),
-                    useValue: mockActionService
+                    provide: getRepositoryToken(ResourceEntity),
+                    useValue: mockResourceService
                 }
             ]
         }).compile();
 
-        service = module.get(ActionService);
+        service = module.get(ResourceService);
     });
     it('Should be defined', () => {
         expect(service).toBeDefined();
@@ -44,14 +43,13 @@ describe("Actions Service", () => {
     it('Should return all values', async () => {
         const result = await service.findAll();
         expect(result).toEqual(expect.arrayContaining([
-            expect.objectContaining({name: 'create'}),
-            expect.objectContaining({name: 'read'}),
-            expect.objectContaining({name: 'update'}),
-            expect.objectContaining({name: 'delete'}),
+            expect.objectContaining({name: 'user'}),
+            expect.objectContaining({name: 'admin'}),
+            expect.objectContaining({name: 'test'}),
         ]));
     });
     it('Should return undefined if invalid uuid', async () => {
-        const result = await service.findOne('test');
+        const result = await service.findOne('test-id');
         expect(result).toBeUndefined();
     });
     it('Should return one', async () => {
