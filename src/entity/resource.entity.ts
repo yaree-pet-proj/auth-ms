@@ -4,7 +4,7 @@ import {
     PrimaryGeneratedColumn
 } from "typeorm";
 
-@Entity()
+@Entity("resource")
 export class ResourceEntity {
 
     @PrimaryGeneratedColumn("uuid")

@@ -7,7 +7,7 @@ import {
 import {ActionsEntity} from "./actions.entity";
 import {ResourceEntity} from "./resource.entity";
 
-@Entity()
+@Entity("permissions")
 export class PermissionsEntity {
 
     @PrimaryGeneratedColumn("uuid")

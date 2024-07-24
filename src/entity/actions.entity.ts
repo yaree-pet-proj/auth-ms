@@ -4,7 +4,7 @@ import {
     PrimaryGeneratedColumn
 } from "typeorm";
 
-@Entity()
+@Entity("actions")
 export class ActionsEntity {
 
     @PrimaryGeneratedColumn("uuid")
