@@ -12,4 +12,15 @@ export class ResourceService {
     ) {
     }
 
+    async findAll() {
+        return await this.resourceRepository.find();
+    }
+
+    async findOne(id: string) {
+        return await this.resourceRepository.findOne({
+            where: {id}
+        });
+    }
+
+
 }
