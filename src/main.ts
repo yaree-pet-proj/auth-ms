@@ -5,7 +5,7 @@ import {ValidationPipe} from "@nestjs/common";
 import { AppDataSource } from '../datasource';
 
 dotenv.config();
-let PORT = process.env.APP_PORT || 3000;
+const PORT = process.env.APP_PORT || 3000;
 
 NestFactory.create(AppModule).then(app => {
     app.useGlobalPipes(new ValidationPipe());

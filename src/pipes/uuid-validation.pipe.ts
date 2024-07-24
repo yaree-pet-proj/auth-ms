@@ -4,7 +4,7 @@ import {isUUID} from "class-validator";
 @Injectable()
 export class UuidValidationPipe implements PipeTransform {
 
-    transform(value: any): any {
+    transform(value) {
         if (!isUUID(value.id, 4)) {
             throw new BadRequestException('Invalid UUID format');
         }
