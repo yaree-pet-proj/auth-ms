@@ -8,7 +8,7 @@ yarn or npm</br>
 run npm install or yarn
 
 ### Repo structure:
-.
+```
 ├── db                      #
 │   └── migration           # database migration files
 ├── src                     # Source files
@@ -23,7 +23,7 @@ run npm install or yarn
 ├── tsconfig.json           # manage typescript compiler options here
 ├── LICENSE                 # LICENCE file
 └── README.md               # readme file
-
+```
 ### useful targets:
 generate migration file based on entities:</br>
 npm run typeorm migration:generate -n <migration_name></br>
