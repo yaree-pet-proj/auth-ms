@@ -5,7 +5,7 @@ import {getRepositoryToken} from "@nestjs/typeorm";
 import {randomUUID} from "node:crypto";
 import {isUUID} from "class-validator";
 
-export const mockActionService = {
+const mockActionService = {
     find: jest.fn(async () => {
         return Promise.resolve([
             {id: randomUUID(), name: 'create'},
