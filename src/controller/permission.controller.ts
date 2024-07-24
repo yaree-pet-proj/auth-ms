@@ -23,8 +23,8 @@ export class PermissionController {
     @Get("actions/:id")
     @HttpCode(HttpStatus.OK)
     @UsePipes(UuidValidationPipe)
-    async findOne(@Param() id: string) {
-        let result = await this.actionService.findOne(id);
+    async findOneAction(@Param() payload: { id: string }) {
+        let result = await this.actionService.findOne(payload.id);
         if (!result) {
             throw new BadRequestException("record doesn't exist");
         }

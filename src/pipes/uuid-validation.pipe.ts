@@ -6,7 +6,6 @@ export class UuidValidationPipe implements PipeTransform {
 
     transform(value: any): any {
         if (!isUUID(value.id, 4)) {
-            console.log(value);
             throw new BadRequestException('Invalid UUID format');
         }
         return value;
