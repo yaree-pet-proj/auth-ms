@@ -1,5 +1,4 @@
 import {ActionService} from "./action.service";
-import {Repository} from "typeorm";
 import {ActionsEntity} from "../entity/actions.entity";
 import {Test, TestingModule} from "@nestjs/testing";
 import {getRepositoryToken} from "@nestjs/typeorm";
@@ -25,7 +24,6 @@ export const mockActionService = {
 
 describe("Actions Service", () => {
     let service: ActionService;
-    let repository: Repository<ActionsEntity>;
 
     beforeEach(async () => {
         const module: TestingModule = await Test.createTestingModule({
@@ -39,13 +37,12 @@ describe("Actions Service", () => {
         }).compile();
 
         service = module.get(ActionService);
-        repository = module.get(getRepositoryToken(ActionsEntity));
     });
     it('Should be defined', () => {
         expect(service).toBeDefined();
     });
     it('Should return all values', async () => {
-        let result = await service.findAll();
+        const result = await service.findAll();
         expect(result).toEqual(expect.arrayContaining([
             expect.objectContaining({name: 'create'}),
             expect.objectContaining({name: 'read'}),
@@ -54,11 +51,11 @@ describe("Actions Service", () => {
         ]));
     });
     it('Should return undefined if invalid uuid', async () => {
-        let result = await service.findOne('test');
+        const result = await service.findOne('test');
         expect(result).toBeUndefined();
     });
     it('Should return one', async () => {
-        let result = await service.findOne(randomUUID());
+        const result = await service.findOne(randomUUID());
         expect(result).toBeDefined();
         expect(result.name).toEqual('test');
     });
