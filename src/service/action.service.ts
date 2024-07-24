@@ -12,4 +12,14 @@ export class ActionService {
     ) {
     }
 
+    async findOne(payload): Promise<ActionsEntity | undefined> {
+        return await this.actionsRepository.findOne({
+            where: {id: payload.id}
+        })
+    }
+
+    async findAll(): Promise<ActionsEntity[]> {
+        return await this.actionsRepository.find();
+    }
+
 }
