@@ -1,4 +1,4 @@
-import {BadRequestException, Controller, Get, HttpCode, HttpStatus, Param, Query, UsePipes} from "@nestjs/common";
+import {BadRequestException, Controller, Get, HttpCode, HttpStatus, Param} from "@nestjs/common";
 import {ActionService} from "../service/action.service";
 import {PermissionService} from "../service/permission.service";
 import {ResourceService} from "../service/resource.service";
