@@ -8,8 +8,9 @@ import {
 import {UUIDV4} from "sequelize";
 import {ActionsModel} from "./actions.model";
 import {ResourceModel} from "./resource.model";
+import {DB_NAMES} from "../database/constants";
 
-@Table({tableName: 'permission'})
+@Table({tableName: DB_NAMES.permissions})
 export class PermissionModel extends Model<PermissionModel> {
 
     @PrimaryKey
