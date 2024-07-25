@@ -1,11 +1,11 @@
 import {Module} from "@nestjs/common";
-import {TypeOrmModule} from "@nestjs/typeorm";
-import {AppDataSource} from '../../datasource'
 import {PermissionModule} from "./permission.module";
+import {SequelizeModule} from "@nestjs/sequelize";
+import getSequelizeConfig from "../database/sequelize.config";
 
 @Module({
     imports: [
-        TypeOrmModule.forRoot(AppDataSource.options),
+        SequelizeModule.forRoot(getSequelizeConfig()),
         PermissionModule
     ]
 })
