@@ -1,19 +1,19 @@
 import {Module} from "@nestjs/common";
-import {TypeOrmModule} from "@nestjs/typeorm";
-import {ActionsEntity} from "../entity/actions.entity";
-import {PermissionsEntity} from "../entity/permissions.entity";
-import {ResourceEntity} from "../entity/resource.entity";
 import {PermissionController} from "../controller/permission.controller";
 import {PermissionService} from "../service/permission.service";
 import {ActionService} from "../service/action.service";
 import {ResourceService} from "../service/resource.service";
+import {SequelizeModule} from "@nestjs/sequelize";
+import {ActionsModel} from "../model/actions.model";
+import {PermissionModel} from "../model/permission.model";
+import {ResourceModel} from "../model/resource.model";
 
 @Module({
     imports: [
-        TypeOrmModule.forFeature([
-            ActionsEntity,
-            PermissionsEntity,
-            ResourceEntity
+        SequelizeModule.forFeature([
+            ActionsModel,
+            PermissionModel,
+            ResourceModel
         ])
     ],
     controllers: [PermissionController],
