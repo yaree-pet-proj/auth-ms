@@ -1,23 +1,22 @@
 import {Injectable} from "@nestjs/common";
-import {InjectRepository} from "@nestjs/typeorm";
-import {ResourceEntity} from "../entity/resource.entity";
-import {Repository} from "typeorm";
+import {InjectModel} from "@nestjs/sequelize";
+import {ResourceModel} from "../model/resource.model";
 
 @Injectable()
 export class ResourceService {
 
     constructor(
-        @InjectRepository(ResourceEntity)
-        private resourceRepository: Repository<ResourceEntity>
+        @InjectModel(ResourceModel)
+        private resourceModule: typeof ResourceModel
     ) {
     }
 
     async findAll() {
-        return await this.resourceRepository.find();
+        return await this.resourceModule.findAll();
     }
 
     async findOne(id: string) {
-        return await this.resourceRepository.findOne({
+        return await this.resourceModule.findOne({
             where: {id}
         });
     }
