@@ -14,7 +14,7 @@ export class ActionService {
     async findOne(id: string): Promise<ActionsModel | undefined> {
         return await this.actionsModel.findOne({
             where: {id}
-        })
+        });
     }
 
     async findAll(): Promise<ActionsModel[]> {

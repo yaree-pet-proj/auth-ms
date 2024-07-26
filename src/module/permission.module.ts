@@ -21,5 +21,4 @@ import {ResourceModel} from "../model/resource.model";
     exports: [PermissionService, ActionService, ResourceService],
 })
 export class PermissionModule {
-
 }

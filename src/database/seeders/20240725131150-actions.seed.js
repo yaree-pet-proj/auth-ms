@@ -1,9 +1,7 @@
 'use strict';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const {DB_NAMES} = require("../constants");
 
-/** @type {import('sequelize-cli').Migration} */
 module.exports = {
     async up(queryInterface) {
         await queryInterface.bulkInsert(DB_NAMES.actions, [
