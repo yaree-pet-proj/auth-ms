@@ -1,4 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config();
 
 const config = {
@@ -34,5 +33,4 @@ const databaseConfig = {
     prod: {...config, ...sslConfig}
 };
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 module.exports = databaseConfig;
