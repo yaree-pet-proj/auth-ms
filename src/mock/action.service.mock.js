@@ -22,6 +22,6 @@ ActionsMockModel.$queueResult([
 ActionsMockModel.findOne = async (id) => {
     const repo = await ActionsMockModel.findAll();
     return repo.find(record => record.id === id.where.id);
-}
+};
 
 module.exports = ActionsMockModel;

@@ -9,6 +9,7 @@ export class ResourceService {
         @InjectModel(ResourceModel)
         private resourceModule: typeof ResourceModel
     ) {
+        this.resourceModule = resourceModule;
     }
 
     async findAll() {

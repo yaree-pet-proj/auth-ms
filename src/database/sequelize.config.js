@@ -1,5 +1,4 @@
 require('dotenv').config();
-
 const config = {
     dialect: 'postgres',
     host: process.env.DB_URL,
@@ -11,8 +10,8 @@ const config = {
     define: {
         hooks: {
             beforeFind: (model) => {
-                model.attributes = {}
-                model.attributes.exclude = ['createdAt', 'updatedAt']
+                model.attributes = {};
+                model.attributes.exclude = ['createdAt', 'updatedAt'];
             }
         },
         timestamps: false

@@ -9,6 +9,7 @@ export class PermissionService {
         @InjectModel(PermissionModel)
         private permissionModel: typeof PermissionModel
     ) {
+        this.permissionModel = permissionModel;
     }
 
 }

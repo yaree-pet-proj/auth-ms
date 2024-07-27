@@ -20,6 +20,6 @@ PermissionMockModel.$queueResult([
 PermissionMockModel.findOne = async (id) => {
     const repo = await PermissionMockModel.findAll();
     return repo.find(record => record.id === id.where.id);
-}
+};
 
 module.exports = PermissionMockModel;

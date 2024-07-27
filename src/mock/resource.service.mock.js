@@ -20,6 +20,6 @@ ResourceMockModel.$queueResult([
 ResourceMockModel.findOne = async (id) => {
     const repo = await ResourceMockModel.findAll();
     return repo.find(record => record.id === id.where.id);
-}
+};
 
 module.exports = ResourceMockModel;
