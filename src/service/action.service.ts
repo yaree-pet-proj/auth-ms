@@ -1,25 +1,24 @@
 import {Injectable} from "@nestjs/common";
-import {InjectRepository} from "@nestjs/typeorm";
-import {ActionsEntity} from "../entity/actions.entity";
-import {Repository} from "typeorm";
+import {InjectModel} from "@nestjs/sequelize";
+import {ActionsModel} from "../model/actions.model";
 
 @Injectable()
 export class ActionService {
 
     constructor(
-        @InjectRepository(ActionsEntity)
-        private actionsRepository: Repository<ActionsEntity>
+        @InjectModel(ActionsModel)
+        private actionsModel: typeof ActionsModel
     ) {
     }
 
-    async findOne(id: string): Promise<ActionsEntity | undefined> {
-        return await this.actionsRepository.findOne({
+    async findOne(id: string): Promise<ActionsModel | undefined> {
+        return await this.actionsModel.findOne({
             where: {id}
-        })
+        });
     }
 
-    async findAll(): Promise<ActionsEntity[]> {
-        return await this.actionsRepository.find();
+    async findAll(): Promise<ActionsModel[]> {
+        return await this.actionsModel.findAll();
     }
 
 }

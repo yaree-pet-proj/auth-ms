@@ -2,7 +2,7 @@ import {BadRequestException, Controller, Get, HttpCode, HttpStatus, Param} from 
 import {ActionService} from "../service/action.service";
 import {PermissionService} from "../service/permission.service";
 import {ResourceService} from "../service/resource.service";
-import {UuidValidationPipe} from "../pipes/uuid-validation.pipe";
+import {UuidValidationPipe} from "../pipe/uuid-validation.pipe";
 
 @Controller('permissions')
 export class PermissionController {
@@ -45,6 +45,5 @@ export class PermissionController {
         }
         return result;
     }
-
 
 }

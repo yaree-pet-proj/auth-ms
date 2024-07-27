@@ -1,14 +1,13 @@
 import {Injectable} from "@nestjs/common";
-import {InjectRepository} from "@nestjs/typeorm";
-import {PermissionsEntity} from "../entity/permissions.entity";
-import {Repository} from "typeorm";
+import {InjectModel} from "@nestjs/sequelize";
+import {PermissionModel} from "../model/permission.model";
 
 @Injectable()
 export class PermissionService {
 
     constructor(
-        @InjectRepository(PermissionsEntity)
-        private permissionRepository: Repository<PermissionsEntity>
+        @InjectModel(PermissionModel)
+        private permissionModel: typeof PermissionModel
     ) {
     }
 

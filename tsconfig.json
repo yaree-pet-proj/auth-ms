@@ -7,7 +7,7 @@
     "outDir": "./dist",
     "resolveJsonModule": true,
     "rootDir": "./src",
-    "target": "es5"
+    "target": "es2021"
   },
   "exclude": [
     "node_modules"
