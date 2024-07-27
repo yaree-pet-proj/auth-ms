@@ -12,12 +12,15 @@ export class PermissionController {
         private readonly permissionService: PermissionService,
         private readonly resourceService: ResourceService
     ) {
+        this.actionService = actionService;
+        this.permissionService = permissionService;
+        this.resourceService = resourceService;
     }
 
     @Get("actions")
     @HttpCode(HttpStatus.OK)
     async findAllActions() {
-        return await this.actionService.findAll();
+        return this.actionService.findAll();
     }
 
     @Get("actions/:id")

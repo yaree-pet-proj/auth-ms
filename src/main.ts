@@ -1,4 +1,4 @@
-import dotenv from "dotenv"
+import dotenv from "dotenv";
 import {AppModule} from "./module/app.module";
 import {NestFactory} from "@nestjs/core";
 import {ValidationPipe} from "@nestjs/common";

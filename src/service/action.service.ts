@@ -9,6 +9,7 @@ export class ActionService {
         @InjectModel(ActionsModel)
         private actionsModel: typeof ActionsModel
     ) {
+        this.actionsModel = actionsModel;
     }
 
     async findOne(id: string): Promise<ActionsModel | undefined> {

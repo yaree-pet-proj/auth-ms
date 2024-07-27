@@ -8,7 +8,7 @@ import {PermissionModel} from "../model/permission.model";
 import {ResourceModel} from "../model/resource.model";
 
 config();
-const NODE_ENV = process.env.NODE_ENV || 'dev'
+const NODE_ENV = process.env.NODE_ENV || 'dev';
 
 @Module({
     imports: [
