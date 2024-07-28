@@ -45,10 +45,10 @@ ResourceMockModel.update = async (values, id) => {
         return {
             id: row.id,
             name: values.name
-        }
+        };
     });
     REPO = REPO.map(item => item.id === id.where.id ? {...item, name: values.name} : item);
     return Promise.resolve([rows.length, rows]);
-}
+};
 
 module.exports = ResourceMockModel;

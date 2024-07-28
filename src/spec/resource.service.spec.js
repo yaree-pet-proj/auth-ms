@@ -82,7 +82,7 @@ describe("Resource Service", () => {
         const afterUpdate = await service.findAll();
         expect(afterUpdate).toEqual(expect.arrayContaining([
             expect.objectContaining(updatedValue)
-        ]))
+        ]));
     });
     it('should return updated record in response', async () => {
         const repo = await service.findAll();
