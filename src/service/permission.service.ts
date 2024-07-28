@@ -12,4 +12,20 @@ export class PermissionService {
         this.permissionModel = permissionModel;
     }
 
+    async findAll(resourceId: string) {
+        return await this.permissionModel.findAll({
+            where: {resource_id: resourceId}
+        });
+    }
+
+    async createOne(payload: Partial<PermissionModel>) {
+        return await this.permissionModel.create(payload);
+    }
+
+    async deleteOne(id: string) {
+        return await this.permissionModel.destroy({
+            where: {id}
+        });
+    }
+
 }
