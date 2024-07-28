@@ -27,7 +27,7 @@ export class ResourceService {
     }
 
     async deleteOne(id: string) {
-        await this.resourceModule.destroy({
+        return await this.resourceModule.destroy({
             where: {id}
         });
     }
