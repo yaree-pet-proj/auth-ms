@@ -1,6 +1,5 @@
 const {Test} = require('@nestjs/testing');
 const {getModelToken} = require("@nestjs/sequelize");
-const ActionsMockModel = require("../mock/action.service.mock");
 const {
     describe,
     beforeEach,
@@ -9,9 +8,10 @@ const {
 } = require('@jest/globals');
 const {PermissionModel} = require("../model/permission.model");
 const {PermissionService} = require("../service/permission.service");
+const PermissionMockModel = require("../mock/permission.service.mock");
 
 
-describe("Action Service", () => {
+describe("Permission Service", () => {
 
     let service;
 
@@ -21,7 +21,7 @@ describe("Action Service", () => {
                 PermissionService,
                 {
                     provide: getModelToken(PermissionModel),
-                    useValue: ActionsMockModel
+                    useValue: PermissionMockModel
                 }
             ]
         }).compile();
