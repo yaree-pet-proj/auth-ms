@@ -22,4 +22,20 @@ export class ResourceService {
         });
     }
 
+    async createOne(name: string): Promise<ResourceModel> {
+        return await this.resourceModule.create({name});
+    }
+
+    async deleteOne(id: string) {
+        await this.resourceModule.destroy({
+            where: {id}
+        });
+    }
+
+    async updateOne(id: string, name: string) {
+        return await this.resourceModule.update({name}, {
+            where: {id}
+        });
+    }
+
 }
