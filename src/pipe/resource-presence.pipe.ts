@@ -1,4 +1,8 @@
-import {ArgumentMetadata, BadRequestException, Injectable, PipeTransform} from "@nestjs/common";
+import {
+    BadRequestException,
+    Injectable,
+    PipeTransform
+} from "@nestjs/common";
 import {ResourceService} from "../service/resource.service";
 
 @Injectable()
@@ -10,7 +14,7 @@ export class ResourcePresencePipe implements PipeTransform {
         this.resourceService = resourceService;
     }
 
-    async transform(value: any) {
+    async transform(value: string) {
         const resource = await this.resourceService.findOne(value);
         if (!resource) {
             throw new BadRequestException("Record doesn't exist");
