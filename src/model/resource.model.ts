@@ -34,5 +34,5 @@ export class CreateResourceDto {
 export class ResourceDto {
     id: string;
     name: string;
-    permissions: { id: string; name: string; }[]
+    permissions: { id: string; name: string; }[];
 }

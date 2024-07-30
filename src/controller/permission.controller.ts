@@ -63,7 +63,7 @@ export class PermissionController {
                     return {
                         id: permission.id,
                         name: actions.find(action => action.id === permission.action_id).name
-                    }
+                    };
                 })
             });
         }
@@ -88,7 +88,7 @@ export class PermissionController {
                 action_id: action.id,
                 resource_id: resource.id
             });
-        })
+        });
         return this.findOneResource(resource.id);
     }
 
@@ -105,9 +105,9 @@ export class PermissionController {
                 return {
                     id: permission.id,
                     name: actions.find(action => action.id === permission.action_id).name
-                }
+                };
             })
-        }
+        };
     }
 
     @Delete("resources/:id")
