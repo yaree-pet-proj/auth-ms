@@ -15,8 +15,9 @@ async function createActionServiceFixture() {
         ]
     }).compile();
 
-    const actionService = module.get(ActionService);
-    return {actionService};
+    return {
+        actionService: module.get(ActionService)
+    };
 }
 
 module.exports = {createActionServiceFixture};

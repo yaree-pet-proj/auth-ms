@@ -15,8 +15,9 @@ async function createPermissionServiceFixture() {
         ]
     }).compile();
 
-    const permissionService = module.get(PermissionService);
-    return {permissionService};
+    return {
+        permissionService: module.get(PermissionService)
+    };
 }
 
 module.exports = {createPermissionServiceFixture};

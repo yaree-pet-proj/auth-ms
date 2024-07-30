@@ -24,15 +24,11 @@ async function createPermissionControllerFixture() {
         ]
     }).compile();
 
-    const actionService = module.get(ActionService);
-    const permissionService = module.get(PermissionService);
-    const resourceService = module.get(ResourceService);
-    const permissionController = module.get(PermissionController);
     return {
-        actionService,
-        permissionService,
-        resourceService,
-        permissionController
+        actionService: module.get(ActionService),
+        permissionService: module.get(PermissionService),
+        resourceService: module.get(ResourceService),
+        permissionController: module.get(PermissionController)
     };
 }
 

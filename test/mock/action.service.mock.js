@@ -4,20 +4,28 @@ const SequelizeMock = require('sequelize-mock');
 
 // Initialize SequelizeMock
 const mock = new SequelizeMock();
+const repo = [
+    {id: randomUUID(), name: 'create'},
+    {id: randomUUID(), name: 'read'},
+    {id: randomUUID(), name: 'update'},
+    {id: randomUUID(), name: 'delete'}
+];
 
-const ActionsMockModel = mock.define(DB_NAMES.actions,
-    {id: 'fake', name: 'default'},
+const ActionsMockModel = mock.define(DB_NAMES.actions, {
+        id: randomUUID(),
+        name: {
+            type: SequelizeMock.STRING,
+        }
+    },
     {
         hasPrimaryKeys: false,
         timestamps: false
     });
 
-ActionsMockModel.$queueResult([
-    ActionsMockModel.build({id: randomUUID(), name: 'create'}),
-    ActionsMockModel.build({id: randomUUID(), name: 'read'}),
-    ActionsMockModel.build({id: randomUUID(), name: 'update'}),
-    ActionsMockModel.build({id: randomUUID(), name: 'delete'})
-]);
+
+ActionsMockModel.findAll = async (id) => {
+    return repo.map(action => ActionsMockModel.build(action));
+}
 
 ActionsMockModel.findOne = async (id) => {
     const repo = await ActionsMockModel.findAll();

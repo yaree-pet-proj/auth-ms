@@ -15,8 +15,9 @@ async function createResourceServiceFixture() {
         ]
     }).compile();
 
-    const resourceService = module.get(ResourceService);
-    return {resourceService};
+    return {
+        resourceService: module.get(ResourceService)
+    };
 }
 
 module.exports = {createResourceServiceFixture};

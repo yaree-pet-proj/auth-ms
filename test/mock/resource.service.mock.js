@@ -4,9 +4,11 @@ const SequelizeMock = require('sequelize-mock');
 
 // Initialize SequelizeMock
 const mock = new SequelizeMock();
-let REPO = [
+let repo = [
     {id: randomUUID(), name: 'admin'},
     {id: randomUUID(), name: 'user'},
+    {id: randomUUID(), name: 'delete'},
+    {id: randomUUID(), name: 'delete2'},
 ];
 
 const ResourceMockModel = mock.define(DB_NAMES.resources, {
@@ -21,33 +23,35 @@ const ResourceMockModel = mock.define(DB_NAMES.resources, {
     });
 
 ResourceMockModel.findAll = async () => {
-    return REPO.map(item => ResourceMockModel.build(item));
+    return repo.map(item => ResourceMockModel.build(item));
 };
 
 ResourceMockModel.findOne = async (id) => {
-    const res = REPO.find(item => item.id === id.where.id);
+    const res = repo.find(item => item.id === id.where.id);
     return res === undefined ? undefined : ResourceMockModel.build(res);
 };
 
 ResourceMockModel.create = async (values) => {
     const record = ResourceMockModel.build(values);
-    REPO.push(record.dataValues);
+    repo.push(record.dataValues);
     return record;
 };
 
 ResourceMockModel.destroy = async (id) => {
-    REPO = REPO.filter(item => item.id !== id.where.id);
+    const size = repo.length;
+    repo = repo.filter(item => item.id !== id.where.id);
+    return Promise.resolve(size - repo.length);
 };
 
 ResourceMockModel.update = async (values, id) => {
-    let rows = REPO.filter(item => item.id === id.where.id);
+    let rows = repo.filter(item => item.id === id.where.id);
     rows = rows.map(row => {
         return {
             id: row.id,
             name: values.name
         };
     });
-    REPO = REPO.map(item => item.id === id.where.id ? {...item, name: values.name} : item);
+    repo = repo.map(item => item.id === id.where.id ? {...item, name: values.name} : item);
     return Promise.resolve([rows.length, rows]);
 };
 
