@@ -1,5 +1,5 @@
 const {randomUUID} = require('node:crypto');
-const DB_NAMES = require('../database/constants').DB_NAMES;
+const DB_NAMES = require('../../src/database/constants').DB_NAMES;
 const SequelizeMock = require('sequelize-mock');
 
 // Initialize SequelizeMock
@@ -51,4 +51,4 @@ ResourceMockModel.update = async (values, id) => {
     return Promise.resolve([rows.length, rows]);
 };
 
-module.exports = ResourceMockModel;
+module.exports = {ResourceMockModel};

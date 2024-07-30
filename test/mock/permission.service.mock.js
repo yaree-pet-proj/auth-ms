@@ -1,5 +1,5 @@
 const {randomUUID} = require('node:crypto');
-const DB_NAMES = require('../database/constants').DB_NAMES;
+const DB_NAMES = require('../../src/database/constants').DB_NAMES;
 const SequelizeMock = require('sequelize-mock');
 
 // Initialize SequelizeMock
@@ -38,4 +38,4 @@ PermissionMockModel.destroy = async (payload) => {
     return Promise.resolve(size - repo.length);
 };
 
-module.exports = PermissionMockModel;
+module.exports = {PermissionMockModel};

@@ -1,5 +1,5 @@
 const {randomUUID} = require('node:crypto');
-const DB_NAMES = require('../database/constants').DB_NAMES;
+const DB_NAMES = require('../../src/database/constants').DB_NAMES;
 const SequelizeMock = require('sequelize-mock');
 
 // Initialize SequelizeMock
@@ -24,4 +24,4 @@ ActionsMockModel.findOne = async (id) => {
     return repo.find(record => record.id === id.where.id);
 };
 
-module.exports = ActionsMockModel;
+module.exports = {ActionsMockModel};
