@@ -7,7 +7,9 @@ dotenv.config();
 const PORT = process.env.APP_PORT || 3000;
 
 NestFactory.create(AppModule).then(app => {
-    app.useGlobalPipes(new ValidationPipe());
+    app.useGlobalPipes(new ValidationPipe({
+        whitelist: true
+    }));
     app.listen(PORT).then(() => {
         console.log(`App listening port: ${PORT}`);
     }).catch(err => {
