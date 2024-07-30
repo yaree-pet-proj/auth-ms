@@ -32,9 +32,10 @@ export class ResourceService {
         });
     }
 
-    async updateOne(id: string, name: string) {
+    async updateOne(id: string, name: string): Promise<[number, ResourceModel[]]> {
         return await this.resourceModule.update({name}, {
-            where: {id}
+            where: {id},
+            returning: true
         });
     }
 
