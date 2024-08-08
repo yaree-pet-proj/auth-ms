@@ -4,6 +4,7 @@
   "description": "",
   "main": "src/main.ts",
   "scripts": {
+    "prestart": "scripts/prestart.sh",
     "start": "ts-node src/main.ts",
     "dev": "nodemon src/main.ts",
     "lint": "eslint 'src/**/*.{js,ts}'",
@@ -40,6 +41,7 @@
     "rxjs": "^7.8.1",
     "sequelize": "^6.37.3",
     "sequelize-typescript": "^2.1.6",
+    "ts-node": "^10.9.2",
     "typescript": "^5.5.4"
   },
   "devDependencies": {
@@ -57,7 +59,6 @@
     "sequelize-cli": "^6.6.2",
     "sequelize-mock": "0.8.0",
     "ts-jest": "^29.2.3",
-    "ts-node": "^10.9.2",
     "typescript-eslint": "^7.17.0"
   }
 }
