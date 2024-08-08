@@ -1,0 +1,13 @@
+.git
+.github
+.gitignore
+test
+.env.example
+docker-compose*.yml
+eslint.config.js
+jest.config.js
+LICENSE
+nodemon.json
+README.md
+package-lock.json
+yarn.lock
