@@ -36,6 +36,8 @@ run npm install or yarn
 generate migration file based on entities:</br>
 npm run typeorm migration:generate -n <migration_name></br>
 run migrations:</br>
-npm run typeorm migration:run
+npm run typeorm migration:run</br>
+run migrations for docker hosted app:</br>
+docker exec -it <container id> npm run <migrate|seed> 
 
 
