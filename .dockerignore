@@ -2,6 +2,8 @@
 .github
 .gitignore
 test
+node_modules
+.idea
 .env.example
 docker-compose*.yml
 eslint.config.js
